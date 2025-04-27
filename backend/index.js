@@ -7,7 +7,8 @@ const app = express();
 const PORT = 3001;
 
 app.use(cors({
-  origin: ['https://nhl-score-db.vercel.app', 'http://localhost:3000'],
+  // origin: ['https://nhl-score-db.vercel.app', 'http://localhost:3000'],
+  origin: 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
   allowedHeaders: ['Content-Type']
@@ -188,5 +189,5 @@ app.delete("/api/players/:id", (req, res) => {
 
 // Käynnistä palvelin
 app.listen(PORT, () => {
-  console.log(`Palvelin käynnissä osoitteessa http://ec2-13-60-31-221.eu-north-1.compute.amazonaws.com:${PORT}`);
+  console.log(`Palvelin käynnissä osoitteessa portissa ${PORT}`);
 });

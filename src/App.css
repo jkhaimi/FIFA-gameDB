@@ -19,7 +19,7 @@
   }
 
     .trophy {
-      width: 2.5em;
+      width: 6em;
       margin-top: 2em;
     }
     
@@ -73,7 +73,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 105vh;
     background-color: rgba(0, 0, 0, 0.9);
     color: white;
     display: flex;
@@ -107,6 +107,30 @@
   
   .fullscreen-menu li a:hover {
     color: lightblue;
+  }
+
+  .fullscreen-social {
+    width: 100%;
+  }
+
+  .fullscreen-social p {
+    margin-bottom: 1.5em;
+  }
+
+  .fullscreen-social a {
+    width: 5em;
+    font-size: 2.3em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    color: whitesmoke;
+  }
+
+  .fullscreen-social a:hover {
+    color: silver;
+  }
+
+  .fullscreen-social button {
+    width: 5em;
   }
   
 }

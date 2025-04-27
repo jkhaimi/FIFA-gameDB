@@ -32,15 +32,15 @@ function PlayerProfile() {
     window.scrollTo(0, 0);
 
     const fetchPlayers = async () => {
-      // const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players`);
-      const response = await fetch('/api/players');
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players`);
+      // const response = await fetch('/api/players');
       const data = await response.json();
       setPlayers(data);
     }
 
     const fetchGames = async () => {
-      // const response = await fetch(`${process.env.REACT_APP_API_URL}/api/games`);
-      const response = await fetch('/api/games');
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/games`);
+      // const response = await fetch('/api/games');
       const data = await response.json();
       setGames(data);
     };
@@ -57,7 +57,7 @@ function PlayerProfile() {
 
   const playerGames = games.filter(
     (game) =>
-      game.homePlayer === playerName || game.awayPlayer === playerName
+      game.player1 === playerName || game.player2 === playerName
   );
 
   const Tiedot = () => (
@@ -88,21 +88,21 @@ function PlayerProfile() {
             <tbody>
               {(showAll ? playerGames.toReversed() : playerGames.slice(-5).toReversed()).map((game) => {
                 const isWinner =
-                  (game.homePlayer === playerName && game.homeScore > game.awayScore) ||
-                  (game.awayPlayer === playerName && game.awayScore > game.homeScore);
+                  (game.player1 === playerName && game.player1Score > game.player2Score) ||
+                  (game.player2 === playerName && game.player2Score > game.player1Score);
 
                 return (
                   <tr key={game.id} className="game-row">
                     <td>
                       <div className="game-players">
-                        <span>{game.homePlayer}</span>
-                        <span>{game.awayPlayer}</span>
+                        <span>{game.player1}</span>
+                        <span>{game.player2}</span>
                       </div>
                     </td>
                     <td>
                       <div className="game-result">
-                        <span><strong>{game.homeScore}</strong></span>
-                        <span><strong>{game.awayScore}</strong></span>
+                        <span><strong>{game.player1Score}</strong></span>
+                        <span><strong>{game.player2Score}</strong></span>
                       </div>
                     </td>
                     <td>
@@ -138,34 +138,34 @@ function PlayerProfile() {
 
     const wins = playerGames.filter((game) => {
       return (
-        (game.homePlayer === playerName && game.homeScore > game.awayScore) ||
-        (game.awayPlayer === playerName && game.awayScore > game.homeScore)
+        (game.player1 === playerName && game.player1Score > game.player2Score) ||
+        (game.player2 === playerName && game.player2Score > game.player1Score)
       );
     }).length;
 
     const losses = playerGames.filter((game) => {
         return (
-          (game.homePlayer === playerName && game.homeScore < game.awayScore) ||
-          (game.awayPlayer === playerName && game.awayScore < game.homeScore)
+          (game.player1 === playerName && game.player1Score < game.player2Score) ||
+          (game.player2 === playerName && game.player2Score < game.player1Score)
         );
       }).length;
 
     const winPercentage = totalGames > 0 ? ((wins / totalGames) * 100).toFixed(1) : 0;
 
     const goalsFor = playerGames.reduce((total, game) => {
-      if (game.homePlayer === playerName) {
-        return total + game.homeScore; 
-      } else if (game.awayPlayer === playerName) {
-        return total + game.awayScore; 
+      if (game.player1 === playerName) {
+        return total + game.player1Score; 
+      } else if (game.player2 === playerName) {
+        return total + game.player2Score; 
       }
       return total;
     }, 0);
 
     const goalsAgainst = playerGames.reduce((total, game) => {
-      if (game.homePlayer === playerName) {
-        return total + game.awayScore; 
-      } else if (game.awayPlayer === playerName) {
-        return total + game.homeScore;
+      if (game.player1 === playerName) {
+        return total + game.player2Score; 
+      } else if (game.player2 === playerName) {
+        return total + game.player1Score;
       }
       return total;
     }, 0);
@@ -173,13 +173,13 @@ function PlayerProfile() {
 
     const homeGames = playerGames.filter((game) => {
         return (
-            (game.homePlayer === playerName)
+            (game.player1 === playerName)
         )
     }).length;
 
     const homeWins = playerGames.filter((game) => {
         return (
-          (game.homePlayer === playerName && game.homeScore > game.awayScore)
+          (game.player1 === playerName && game.player1Score > game.player2Score)
         );
       }).length;
 
@@ -188,46 +188,44 @@ function PlayerProfile() {
 
     const awayGames = playerGames.filter((game) => {
         return (
-            (game.awayPlayer === playerName)
+            (game.player2 === playerName)
         )
     }).length;
 
     const awayWins = playerGames.filter((game) => {
         return (
-            (game.awayPlayer === playerName && game.awayScore > game.homeScore)
+            (game.player2 === playerName && game.player2Score > game.player1Score)
         )
     }).length;
 
     const awayWinPrecentage = totalGames > 0 ? ((awayWins / awayGames) * 100).toFixed(1) : 0;
 
     const calculateWinningStreak = () => {
-        let maxStreak = 0;
         let currentStreak = 0;
     
         playerGames.forEach((game) => {
           const isWin =
-            (game.homePlayer === playerName && game.homeScore > game.awayScore) ||
-            (game.awayPlayer === playerName && game.awayScore > game.homeScore);
+            (game.player1 === playerName && game.player1Score > game.player2Score) ||
+            (game.player2 === playerName && game.player2Score > game.player1Score);
     
           if (isWin) {
             currentStreak++;
-            maxStreak = Math.max(maxStreak, currentStreak);
           } else {
             currentStreak = 0;
           }
         });
     
-        return maxStreak;
+        return currentStreak;
       };
 
-      const longestWinStreak = calculateWinningStreak();
+      const WinStreak = calculateWinningStreak();
     //   const winStreakPercentage = totalGames > 0 ? ((longestWinStreak / totalGames) * 100).toFixed(1) : 0;
 
       const winstreak = {
         labels: ["Voittoputki"],
         datasets: [{
             label: "Poll",
-            data: [longestWinStreak, (10 - longestWinStreak)],
+            data: [WinStreak, (10 - WinStreak)],
             backgroundColor: ["orange", "transparent"]
         }]
       }
@@ -242,23 +240,23 @@ function PlayerProfile() {
       }
 
 
-    const kotivoittoprosentti = {
-        labels: ["Kotivoitto %"],
-        datasets: [{
-            label: "Poll",
-            data: [homeWinPrecentage, (100 - homeWinPrecentage)],
-            backgroundColor: ["purple", "transparent"]
-        }]
-    }
+    // const kotivoittoprosentti = {
+    //     labels: ["Kotivoitto %"],
+    //     datasets: [{
+    //         label: "Poll",
+    //         data: [homeWinPrecentage, (100 - homeWinPrecentage)],
+    //         backgroundColor: ["purple", "transparent"]
+    //     }]
+    // }
 
-    const vierasvoittoprosentti = {
-        labels: ["Vierasvoitto %"],
-        datasets: [{
-            label: "Poll",
-            data: [awayWinPrecentage, (100 - awayWinPrecentage)],
-            backgroundColor: ["lightblue", "transparent"]
-        }]
-    }
+    // const vierasvoittoprosentti = {
+    //     labels: ["Vierasvoitto %"],
+    //     datasets: [{
+    //         label: "Poll",
+    //         data: [awayWinPrecentage, (100 - awayWinPrecentage)],
+    //         backgroundColor: ["lightblue", "transparent"]
+    //     }]
+    // }
 
     const options = {
     }
@@ -270,16 +268,16 @@ function PlayerProfile() {
         <div className="player-games-stats">
             <span>Voitot <strong>{wins}</strong></span>
             <span>Häviöt <strong>{losses}</strong></span>
-            <span>Kotipelit <strong>{homeGames}</strong></span>
-            <span>Vieraspelit <strong>{awayGames}</strong></span>
+            {/* <span>Kotipelit <strong>{homeGames}</strong></span>
+            <span>Vieraspelit <strong>{awayGames}</strong></span> */}
             <span>Tehdyt maalit <strong>{goalsFor}</strong></span>
             <span>Päästetyt maalit <strong>{goalsAgainst}</strong></span>
             </div>
         </div>
         <span className="doughnut-1">{winPercentage}%</span>
-        <span className="doughnut-2">{longestWinStreak}</span>
-        <span className="doughnut-3">{homeWinPrecentage}%</span>
-        <span className="doughnut-4">{awayWinPrecentage}%</span>
+        <span className="doughnut-2">{WinStreak}</span>
+        {/* <span className="doughnut-3">{homeWinPrecentage}%</span>
+        <span className="doughnut-4">{awayWinPrecentage}%</span> */}
         <div className="doughnuts">
             <div className="doughnut">
             <Doughnut
@@ -293,7 +291,7 @@ function PlayerProfile() {
             options={options}
             />
         </div>
-        <div className="doughnut">
+        {/* <div className="doughnut">
             <Doughnut
             data={kotivoittoprosentti}
             options={options}
@@ -304,7 +302,7 @@ function PlayerProfile() {
             data={vierasvoittoprosentti}
             options={options}
             />
-        </div>
+        </div> */}
         </div>
       </div>
     );

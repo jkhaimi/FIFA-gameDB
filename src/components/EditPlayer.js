@@ -3,6 +3,7 @@ import "./EditPlayer.css";
 import { Link } from "react-router-dom";
 import { LuArrowLeft } from "react-icons/lu";
 import StanleyCup from "../Images/Stanley_Cup.png";
+import UCL from "../Images/UCL.webp";
 import { useNavigate } from "react-router-dom";
 
 const Notification = ({ message, type }) => {
@@ -24,8 +25,8 @@ const EditPlayer = () => {
   useEffect(() => {
     const fetchPlayers = async () => {
       try {
-        // const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players`);
-        const response = await fetch('/api/players');
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players`);
+        // const response = await fetch('/api/players');
         const data = await response.json();
         setPlayers(data);
       } catch (error) {
@@ -64,8 +65,8 @@ const EditPlayer = () => {
     }
 
     try {
-      // const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players/${selectedPlayer.id}`, {
-        const response = await fetch(`/api/players/${selectedPlayer.id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players/${selectedPlayer.id}`, {
+        // const response = await fetch(`/api/players/${selectedPlayer.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -103,8 +104,8 @@ const EditPlayer = () => {
 
     try {
       const response = await fetch(
-        // `http://localhost:3001/api/players/${selectedPlayer.id}`,
-        `/api/players/${selectedPlayer.id}`,
+        `http://localhost:3001/api/players/${selectedPlayer.id}`,
+        // `/api/players/${selectedPlayer.id}`,
         {
           method: "DELETE",
         }
@@ -128,14 +129,14 @@ const EditPlayer = () => {
         <LuArrowLeft />
       </Link>
       <div className="player-top">
-        <img src={StanleyCup} className="trophy" alt="Stanley Cup" />
-        <p className="league-title">NHL-cup</p>
+        <img src={UCL} className="trophy" alt="Stanley Cup" />
+        <p className="league-title">FIFA League of Champions</p>
         <p className="league-year">2025</p>
       </div>
 
       {!selectedPlayer && (
         <div>
-          <h2>Valitse pelaaja:</h2>
+          <h2 style={{textAlign: "center"}}>Valitse pelaaja:</h2>
           <div className="player-buttons">
             {players.map((player) => (
               <button

@@ -14,40 +14,56 @@ function GameTable({ players, games}) {
       goalsAgainst: 0,
       goalDifference: 0,
       winRatio: 0,
+      winLoseRatio: 0,
     }));
 
     games.forEach((game) => {
-      const homePlayerStats = stats.find((stat) => stat.name === game.homePlayer);
-      const awayPlayerStats = stats.find((stat) => stat.name === game.awayPlayer);
+      const player1Stats = stats.find((stat) => stat.name === game.player1);
+      const player2Stats = stats.find((stat) => stat.name === game.player2);
 
-    if (homePlayerStats && awayPlayerStats) {
-      if (game.homeScore > game.awayScore) {
-        homePlayerStats.wins++;
-        awayPlayerStats.losses++;
-      } else if (game.awayScore > game.homeScore) {
-        awayPlayerStats.wins++;
-        homePlayerStats.losses++;
+    if (player1Stats && player2Stats) {
+      if (game.player1Score > game.player2Score) {
+        player1Stats.wins++;
+        player2Stats.losses++;
+      } else if (game.player2Score > game.player1Score) {
+        player2Stats.wins++;
+        player1Stats.losses++;
       }
 
-      homePlayerStats.goalsFor += game.homeScore;
-      homePlayerStats.goalsAgainst += game.awayScore;
-      homePlayerStats.goalDifference = homePlayerStats.goalsFor - homePlayerStats.goalsAgainst;
+      player1Stats.goalsFor += game.player1Score;
+      player1Stats.goalsAgainst += game.player2Score;
+      player1Stats.goalDifference = player1Stats.goalsFor - player1Stats.goalsAgainst;
 
-      homePlayerStats.winRatio = (
-        (homePlayerStats.wins / (homePlayerStats.wins + homePlayerStats.losses)) *
+      player1Stats.winRatio = (
+        (player1Stats.wins / (player1Stats.wins + player1Stats.losses)) *
         100
       ).toFixed(1);
 
-      awayPlayerStats.goalsFor += game.awayScore;
-      awayPlayerStats.goalsAgainst += game.homeScore;
-      awayPlayerStats.goalDifference = awayPlayerStats.goalsFor - awayPlayerStats.goalsAgainst;
+      player1Stats.winLoseRatio = (
+        (player1Stats.wins / player1Stats.losses)
+      ).toFixed(2);
 
-      awayPlayerStats.winRatio = (
-        (awayPlayerStats.wins / (awayPlayerStats.wins + awayPlayerStats.losses)) *
+      player2Stats.goalsFor += game.player2Score;
+      player2Stats.goalsAgainst += game.player1Score;
+      player2Stats.goalDifference = player2Stats.goalsFor - player2Stats.goalsAgainst;
+
+      player2Stats.winRatio = (
+        (player2Stats.wins / (player2Stats.wins + player2Stats.losses)) *
         100
       ).toFixed(1);
+
+      player2Stats.winLoseRatio = (
+        (player2Stats.wins / player2Stats.losses)
+      ).toFixed(2);
+
+      if (player1Stats.wins >= 1 && player1Stats.losses === 0) {
+        player1Stats.winLoseRatio = player1Stats.wins;
       }
-    });
+      if (player2Stats.wins >= 1 && player2Stats.losses === 0) {
+        player2Stats.winLoseRatio = player2Stats.wins;
+      }
+
+      }});
 
     return stats;
   };
@@ -73,7 +89,7 @@ function GameTable({ players, games}) {
               <th>W</th>
               <th>L</th>
               <th>GD</th>
-              <th>W%</th>
+              <th>W/L ratio</th>
             </tr>
           </thead>
           <tbody>
@@ -90,7 +106,8 @@ function GameTable({ players, games}) {
                   <td>{stat.wins}</td>
                   <td>{stat.losses}</td>
                   <td>{stat.goalDifference}</td>
-                  <td><strong>{stat.winRatio}%</strong></td>
+                  {/* <td><strong>{stat.winRatio}%</strong></td> */}
+                  <td><strong>{stat.winLoseRatio}</strong></td>
                 </tr>
               ))}
           </tbody>

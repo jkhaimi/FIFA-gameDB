@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./AddPlayer.css";
 import { LuArrowLeft } from "react-icons/lu";
 import StanleyCup from "../Images/Stanley_Cup.png";
+import UCL from "../Images/UCL.webp";
 import { useNavigate } from "react-router-dom";
 
 const Notification = ({ message, type }) => {
@@ -55,8 +56,8 @@ const handleSubmit = async (e) => {
     }
   
     try {
-      // const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players`, {
-        const response = await fetch('/api/players', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players`, {
+        // const response = await fetch('/api/players', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -93,8 +94,8 @@ const handleSubmit = async (e) => {
         <LuArrowLeft />
       </Link>
       <div className="player-top">
-        <img src={StanleyCup} className="trophy" alt="Stanley Cup" />
-        <p className="league-title">NHL-cup</p>
+        <img src={UCL} className="trophy" alt="Stanley Cup" />
+        <p className="league-title">FIFA League of Champions</p>
         <p className="league-year">2025</p>
       </div>
 

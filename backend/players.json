@@ -12,18 +12,6 @@
     "id": 1
   },
   {
-    "firstname": "Juuso",
-    "lastname": "Vuorela",
-    "team": "JPS",
-    "age": 29,
-    "height": "175",
-    "weight": "93",
-    "city": "Jyväskylä",
-    "image": "../Images/Juuso.png",
-    "color": "#31dd53",
-    "id": 2
-  },
-  {
     "firstname": "Roni",
     "lastname": "Koskinen",
     "team": "Ei harrastuksia:D",
@@ -33,7 +21,7 @@
     "city": "Tuulos",
     "image": "../Images/Roni.png",
     "color": "#a036b5",
-    "id": 3
+    "id": 2
   },
   {
     "firstname": "Miro",
@@ -45,62 +33,30 @@
     "city": "Järvenpää",
     "image": "../Images/Miro.png",
     "color": "#7b73f2",
+    "id": 3
+  },
+  {
+    "firstname": "Chris",
+    "lastname": "Nelson",
+    "team": "Liverpool",
+    "age": "23",
+    "height": "160",
+    "weight": "95",
+    "city": "Dubai",
+    "image": "../Images/Chris.png",
+    "color": "#9a1818",
     "id": 4
   },
   {
-    "firstname": "Eemil",
-    "lastname": "Hukkanen",
-    "team": "NMKY Mäntsälä",
-    "age": "230",
-    "height": "183",
-    "weight": "95(100)",
-    "city": "Mäntsälä",
-    "image": "../Images/Eemil.png",
-    "color": "#e63b7a",
-    "id": 5
-  },
-  {
-    "firstname": "Lassi",
-    "lastname": "Laitinen",
-    "team": "Diskos",
-    "age": "24",
-    "height": "175",
-    "weight": "72",
-    "city": "Jyväskylä",
-    "color": "#831100",
-    "id": 6
-  },
-  {
-    "firstname": "Minea",
-    "lastname": "Nupponen",
-    "team": "WhiteLighters",
-    "age": "22",
-    "height": "182",
-    "weight": "61",
-    "city": "Tampere",
-    "color": "#efcaff",
-    "id": 7
-  },
-  {
-    "firstname": "Vili",
-    "lastname": "Läppä",
-    "team": "Pelicans",
-    "age": "21",
-    "height": "190",
-    "weight": "96",
-    "city": "Lahti",
-    "color": "#01c7fc",
-    "id": 8
-  },
-  {
-    "firstname": "Santtu",
-    "lastname": "Tikkamäki",
-    "team": "KJT",
+    "firstname": "Mikael",
+    "lastname": "Wallis",
+    "team": "ManU",
     "age": "23",
-    "height": "182",
-    "weight": "95",
-    "city": "Korso",
-    "color": "#e22400",
-    "id": 9
+    "height": "203",
+    "weight": "99",
+    "city": "Kartanonkoski",
+    "image": "../Images/Mikael.png",
+    "color": "#3a7e47",
+    "id": 5
   }
 ]

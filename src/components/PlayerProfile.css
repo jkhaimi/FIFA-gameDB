@@ -144,35 +144,35 @@
     }
   
     .profile-image-2 {
-      height: 21em;
-      left: 9.5em;
+      height: 16em;
+      left: 10.7em;
       top: -1em;
     }
 
     .profile-image-3 {
-      height: 16em;
-      left: 12.6em;
-      top: -1em;
-    }
-
-    .profile-image-4 {
       height: 20em;
-      left: 9em;
+      left: 7.5em;
       top: -2.5em;
     }
 
+    .profile-image-4 {
+      height: 16em;
+      left: 9em;
+      top: -1em;
+    }
+
     .profile-image-5 {
-      height: 21em;
-      left: 12.3em;
-      top: -1.9em;
+      height: 16em;
+      left: 14.4em;
+      top: -1em;
     }
 
     .default-image {
       position: relative;
       width: auto;
       height: 12em;
-      margin-top: 2em;
-      margin-left: 9em;
+      margin-top: 4.8em;
+      left: 5em;
     }
 
     /* Linkit */
@@ -338,16 +338,16 @@
 
       .doughnut-1 {
         position: relative;
-        top: 7.5em;
-        right: 2.8em;
+        top: 7em;
+        right: 5.6em;
         font-size: 15px;
         font-weight: bold;
       }
 
       .doughnut-2 {
         position: relative;
-        top: 7.5em;
-        left: 7.9em;
+        top: 7em;
+        left: 4.2em;
         font-size: 15px;
         font-weight: bold;
       }
