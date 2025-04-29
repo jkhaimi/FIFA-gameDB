@@ -145,14 +145,14 @@
   
     .profile-image-2 {
       height: 16em;
-      left: 10.7em;
+      left: 10.5em;
       top: -1em;
     }
 
     .profile-image-3 {
-      height: 20em;
-      left: 7.5em;
-      top: -2.5em;
+      height: 19em;
+      left: 6.9em;
+      top: -1.5em;
     }
 
     .profile-image-4 {
@@ -163,15 +163,27 @@
 
     .profile-image-5 {
       height: 16em;
-      left: 14.4em;
+      left: 14.3em;
       top: -1em;
+    }
+
+    .profile-image-6 {
+      height: 14em;
+      left: 8.4em;
+      top: 1em;
+    }
+
+    .profile-image-7 {
+      height: 14em;
+      left: 10.4em;
+      top: 1em;
     }
 
     .default-image {
       position: relative;
       width: auto;
       height: 12em;
-      margin-top: 4.8em;
+      margin-top: 2em;
       left: 5em;
     }
 

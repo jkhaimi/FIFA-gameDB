@@ -58,5 +58,29 @@
     "image": "../Images/Mikael.png",
     "color": "#3a7e47",
     "id": 5
+  },
+  {
+    "firstname": "Diddy",
+    "lastname": "O'Leary",
+    "team": "Chelsea",
+    "age": "24",
+    "height": "171",
+    "weight": "65",
+    "city": "Cork",
+    "image": "../Images/Dion.png",
+    "color": "#4817cf",
+    "id": 6
+  },
+  {
+    "firstname": "Abdikadir",
+    "lastname": "Aligure",
+    "team": "Arsenal",
+    "age": "23",
+    "height": "185",
+    "weight": "103",
+    "city": "Somaliland",
+    "image": "../Images/Abdi.png",
+    "color": "#be2323",
+    "id": 7
   }
 ]

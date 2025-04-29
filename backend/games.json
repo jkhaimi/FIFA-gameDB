@@ -4,20 +4,23 @@
     "player2": "Roni",
     "player1Score": 3,
     "player2Score": 0,
-    "addedAt": "27.04.2025 19:18"
+    "addedAt": "27.04.2025 19:18",
+    "id": 1
   },
   {
     "player1": "Jesse",
     "player2": "Roni",
     "player1Score": 0,
     "player2Score": 1,
-    "addedAt": "27.04.2025 19:27"
+    "addedAt": "27.04.2025 19:27",
+    "id": 2
   },
   {
     "player1": "Jesse",
     "player2": "Miro",
     "player1Score": 3,
     "player2Score": 1,
-    "addedAt": "27.04.2025 19:56"
+    "addedAt": "27.04.2025 19:56",
+    "id": 3
   }
 ]
