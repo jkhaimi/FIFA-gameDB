@@ -56,8 +56,8 @@ const handleSubmit = async (e) => {
     }
   
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players`, {
-        // const response = await fetch('/api/players', {
+      // const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players`, {
+        const response = await fetch('/api/players', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const handleSubmit = async (e) => {
       }
     } catch (error) {
       console.error("Virhe POST-pyynnössä:", error);
-      setNotification({ message: "Yhteys eoponnistui!", type: "error" });
+      setNotification({ message: "Yhteys epäonnistui!", type: "error" });
     }
   };  
 

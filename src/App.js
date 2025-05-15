@@ -26,9 +26,7 @@ function App() {
       const playersData = await playersResponse.json();
 
       setGames(gamesData);
-      console.log(gamesData);
       setPlayers(playersData);
-      console.log(playersData);
       
     } catch (error) {
       console.error("Virhe tietojen hakemisessa:", error);
