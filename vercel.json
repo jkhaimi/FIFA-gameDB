@@ -2,7 +2,7 @@
     "rewrites": [
       {
         "source": "/api/:path*",
-        "destination": "http://ec2-13-60-31-221.eu-north-1.compute.amazonaws.com:3001/api/:path*"
+        "destination": "https://fifaappbackend.azurewebsites.net/api/path*"
       }
     ],
     "headers": [
