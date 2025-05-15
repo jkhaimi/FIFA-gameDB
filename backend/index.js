@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors({
   // origin: ['https://nhl-score-db.vercel.app', 'http://localhost:3000'],
-  origin: "https://fifa-game-db.vercel.app/",
+  origin: ["https://fifa-game-db.vercel.app/", "http://localhost:3002"],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
   allowedHeaders: ['Content-Type']
