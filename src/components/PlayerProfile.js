@@ -32,15 +32,15 @@ function PlayerProfile() {
     window.scrollTo(0, 0);
 
     const fetchPlayers = async () => {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players`);
-      // const response = await fetch('/api/players');
+      // const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players`);
+      const response = await fetch('/api/players');
       const data = await response.json();
       setPlayers(data);
     }
 
     const fetchGames = async () => {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/games`);
-      // const response = await fetch('/api/games');
+      // const response = await fetch(`${process.env.REACT_APP_API_URL}/api/games`);
+      const response = await fetch('/api/games');
       const data = await response.json();
       setGames(data);
     };
