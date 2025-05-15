@@ -6,7 +6,6 @@ import GameTable from "./components/GameTable";
 import PlayerProfile from "./components/PlayerProfile";
 import AddPlayer from "./components/AddPlayer";
 import EditPlayer from "./components/EditPlayer";
-import StanleyCup from "./Images/Stanley_Cup.png";
 import UCL from './Images/UCL.webp';
 import Footer from "./components/Footer";
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
@@ -19,10 +18,10 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const playersResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/players`);
-      const gamesResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/games`);
-      // const playersResponse = await fetch('/api/players');
-      // const gamesResponse = await fetch('/api/games');
+      // const playersResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/players`);
+      // const gamesResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/games`);
+      const playersResponse = await fetch('/api/players');
+      const gamesResponse = await fetch('/api/games');
       const gamesData = await gamesResponse.json();
       const playersData = await playersResponse.json();
 
