@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./EditPlayer.css";
 import { Link } from "react-router-dom";
 import { LuArrowLeft } from "react-icons/lu";
-import StanleyCup from "../Images/Stanley_Cup.png";
 import UCL from "../Images/UCL.webp";
 import { useNavigate } from "react-router-dom";
 
@@ -25,8 +24,8 @@ const EditPlayer = () => {
   useEffect(() => {
     const fetchPlayers = async () => {
       try {
-        // const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players`);
-        const response = await fetch('/api/players');
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/players`);
+        // const response = await fetch('/api/players');
         const data = await response.json();
         setPlayers(data);
       } catch (error) {
