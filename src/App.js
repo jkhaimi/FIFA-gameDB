@@ -24,7 +24,6 @@ function App() {
       // const gamesResponse = await fetch('/api/games');
       const gamesData = await gamesResponse.json();
       const playersData = await playersResponse.json();
-      console.log("kissa" + playersData);
 
       setGames(gamesData);
       setPlayers(playersData);
